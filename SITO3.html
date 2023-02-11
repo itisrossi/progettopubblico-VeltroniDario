@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Calcolo Codice Fiscale</title><!--titolo pagina-->
+    <script type="text/javascript" src="SITO3.js"></script>
+    <!--Inizio background-->
+    <style>
+    #calcolo {
+    box-sizing: border-box;
+    background: rgb(0, 200, 255);
+    margin: 50px auto 90px auto;
+    width: 570px;
+    position: relative;
+    border-radius: 15px;
+    padding: 5px 5px 15px 5px;
+    }
+
+    #calcolo h1 {
+    margin: 0 0 0 100px;
+    position: absolute;
+    bottom: 28px;
+    right: 10px;
+    color: rgb(187, 10, 10);
+    font-weight: normal;
+    font-size: 28px;
+    }
+
+
+    #calcolo .testata {
+    background: #ffee00;
+    background: #ffee00;
+    background: -moz-linear-gradient(top,  #c8ff00 0%, #ffbb00 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffbb00), color-stop(100%,#ffbb00));
+    background: -webkit-linear-gradient(top,  #e5ff00 0%,#ffbb00 100%);
+    background: -o-linear-gradient(top,  #d9ff00 0%,#ffbb00 100%);
+    background: -ms-linear-gradient(top,  #b9ff00 0%,#ffbb00 100%);
+    background: linear-gradient(to bottom,  #d9ff00 0%,#ffbb00 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d9ff00', endColorstr='#ffbb00',GradientType=0 );
+    border-radius: 12px 12px 0 0;
+    height: 95px;
+    position: relative;
+    margin-bottom: 20px;
+    }
+
+
+    </style>
+    <script>
+        
+        function vocale(carattere){//trovare vocale
+            risultato = false;
+            switch(carattere){
+                case "A":
+                case "E":
+                case "I":
+                case "O":
+                case "U":
+                    risultato = true;
+                    break;
+                default:
+                    break;
+            }
+            return risultato;
+        }
+        function consonante(carattere){//trovare consonante
+            risultato = false;
+            switch(carattere){
+                case "B":
+                case "C":
+                case "D":
+                case "F":
+                case "G":
+                case "Q":
+                case "W":
+                case "R":
+                case "T":
+                case "Y":
+                case "P":
+                case "S":
+                case "H":
+                case "J":
+                case "K":
+                case "L":
+                case "Z":
+                case "X":
+                case "V":
+                case "N":
+                case "M":
+                    risultato = true;
+                    break;
+                default:
+                    break;
+            }
+            return risultato;
+       }
+
+       function contaConsonanti(cognome)
+      {
+        let k = 0;
+        var LettereCognome = [];
+        var VocaliCognome = [];
+        let ConsonantiCognome = [];
+        let k2 = 0;
+        for (let i = 0; i < cognome.length; i++) {
+            LettereCognome[i] = cognome.slice(i, i + 1);
+        }
+        for (let i = 0; i < array.length; i++) {
+            
+            if(LettereCognome[i] == "A"){
+                VocaliCognome[k] = LettereCognome[i];//k
+                k = k + 1;
+            }else{
+            if(LettereCognome[i] == "E"){
+                VocaliCognome[k] = LettereCognome[i];//k
+                k = k + 1;
+            } else{   
+            
+            if(LettereCognome[i] == "I"){
+                VocaliCognome[k] = LettereCognome[i];//k
+                k = k + 1;
+            }else {
+            if(LettereCognome[i] == "O"){
+                VocaliCognome[k] = LettereCognome[i];//k
+                k = k + 1;
+            }else{
+            
+            if(LettereCognome[i] == "U"){
+                VocaliCognome[k] = LettereCognome[i];//k
+                k = k + 1;
+         
+            }else {
+                ConsonantiCognome[k2] = LettereCognome[i];
+                k2 = K2 + 1; 
+            }
+        }
+     }
+      }
+    }
+            
+        }
+
+      }
+      function contaConsonanti(nome)
+      {
+        let k = 0;
+        var LettereNome = [];
+        var VocaliNome = [];
+        let ConsonantiNome = [];
+        let k2 = 0;
+        for (let i = 0; i < nome.length; i++) {
+            LettereNome[i] = nome.slice(i, i + 1);
+        }
+        for (let i = 0; i < array.length; i++) {
+            
+            if(LettereNome[i] == "A"){
+                VocaliNome[k] = LettereNome[i];//k
+                k = k + 1;
+            }else{
+            if(LettereNome[i] == "E"){
+                VocaliNome[k] = LettereNome[i];//k
+                k = k + 1;
+            } else{   
+            
+            if(LettereNome[i] == "I"){
+                VocaliNome[k] = LettereNome[i];//k
+                k = k + 1;
+            }else {
+            if(LettereNome[i] == "O"){
+                VocaliNome[k] = LettereNome[i];//k
+                k = k + 1;
+            }else{
+            
+            if(LettereNome[i] == "U"){
+                VocaliNome[k] = LettereNome[i];//k
+                k = k + 1;
+         
+            }else {
+                ConsonantiNome[k2] = LettereNome[i];
+                k2 = K2 + 1; 
+            }
+        }
+     }
+      }
+    }
+            
+        }
+
+      }
+
+
+      //si fa una cosa simile anche per gli altri . Fatto col prof
+        //ritorna le prime 3 consonanti di cognome
+        //Aggiungi le prime 3 vocali se le consonanti non sono sufficenti
+        //Aggiungi X se non sono sufficcenti lle vocali
+        function calcolaCognome(cognome) //Qui inizza il calcolo del cognome
+        {
+            let risultato = "";
+
+            let i = 0; //contatore consonanti trovate in cognome
+            let j = 0; //posizione da esaminare
+       
+
+            let z = contaConsonanti(cognome);
+
+            while(i<=2 && i!=z){
+                let c = cognome.charAt(j);
+                if (!vocale(c) == false){
+                    x = x + c;
+                    i++;
+ 
+                }
+                j++;
+            }    
+                j=0; //riparto dall'inizio di cognome
+            while (risultato.length < 3 &&  j < cognome.leght){
+                let c = cognome.charAt(j);
+                if (vocale(c)) {
+                    risultato = risultato + c;
+        
+                }
+                j++;
+            }
+            while (risultato.length < 3){
+                risultato += 'x';
+             
+            }
+            j++;
+            return risultato;//Qui finisce il calcolo del cognome
+        }
+        
+        
+        
+        function calcolaNome(nome) //Qui inizza il calcolo del nome
+        {
+            let risultato = "";
+
+            let i = 0; //contatore consonanti trovate in nome
+            let j = 0; //posizione da esaminare
+        
+
+            let z = contaConsonanti(nome);
+
+            while(i<=2 && i!=z){
+                let c = nome.charAt(j);
+                if (!vocale(c) == false){
+                    x = x + c;
+                    i++;
+    
+                }
+                j++;
+            }    
+                j=0; //riparto dall'inizio di nome
+            while (risultato.length < 3 &&  j < nome.leght){
+                let c = nome.charAt(j);
+                if (vocale(c)) {
+                    risultato = risultato + c;
+            
+            }
+                j++;
+            while (risultato.length < 3){
+                risultato += 'x';
+                
+            }
+                j++;
+
+            }
+            return risultato; //Qui finisce il calcolo del nome
+        }
+        
+        function calcoloAnno(anno){ //Qui inizza il calcolo dell'anno. Non so se e giusto
+            let numeroAnno = dataDiNascita.slice(8,10);
+            
+            let risultato = numeroAnno;
+            return risultato;//Qui finisce il calcolo dell'anno
+        }
+        
+
+        function calcolaMese(mese) //Qui inizzia il calcolo del mese
+        {
+            let lettereMesi = ["A", "B", "C", "D", "E", "H", "L", "M", "P", "R", "S", "T"]; //Dove ci sono i tre palline bisogna ancora scrivere
+            let risultato = "";
+
+            if ((mese >= 1) && (mese <= 12))
+                risultato = lettereMesi[messe - 1];
+            else
+                risultato ="";    
+            return risultato;  //Qui finisce il calcolo del mese
+        }
+
+        function calcoloGiorno(giorno){//Qui inizzia il calcolo dei giorni. Non sono sicuro  se e giusto
+            let numeroGiorno = dataDiNascita(0,2)
+            if(sesso === "F"){
+                numeroGiorno + 40;
+            }
+            let risultato = numeroGiorno
+
+        
+            return risultato;  //Qui finisce il calcolo dei giorni
+        }
+        
+
+        function calcolaComune(comuneDiNascita){//Qui inizia il calcolo del comune di nascita
+
+            return risultato;//Qui finisce il calcolo del comune di nascita
+        }
+
+
+     //Calcolo effettivo del codice
+        
+        function calcolaCodice(cognome, nome, dataDiNascita, comuneDiNascita, sesso)
+        {
+            let risultato = "";
+            let codiceFiscaleCognome = calcolaCognome(cognome);
+            let codiceFiscaleNome = calcolaNome(nome);
+            let codiceFiscaleAnno = calcolaAnno(dataDiNascita);
+            let codiceFiscaleMese = calcolaMese(dataDiNascita);
+            let codiceFiscaleGiorno = calcolaGiorno(dataDiNascita, sesso);
+            let codiceFiscaleComune = calcolaComune(comuneDiNascita);
+            risultato = codiceFiscaleCognome + codiceFiscaleNome+codiceFiscaleAnno+codiceFiscaleMese + codiceFiscaleGiorno+codiceFiscaleComune;
+            let codiceFiscaleControllo = calcolaControllo(risultato);//il valore calcola controllo viee calcolato nel file SITO3.js
+            risultato += codiceFiscaleControllo;
+            return risultato;
+        }
+        
+
+        function leggiInformzione(){    
+            var nome=  document.getElementById("NOM").value;
+            var cognome = document.getElementById("COGN").value;
+            var dataDiNascita = document.getElementById("DAT").value;
+            var sesso = document.getElementById("SES").value;
+            var comuneDiNascita =document.getElementById("province").value;/*querySelector('input[name="province"]');*/
+            var risultato = calcolaCodice(cognome, nome, dataDiNascita, sesso, comuneDiNascita);
+            document.getElementById("RIS").value = risultato;
+            //document.write(comuneDiNascita)
+        }
+
+    </script>
+</head>
+<body>
+<!--Fine background-->
+<form id="calcolo" class="" >
+	<div class="testata">
+		<h1><b>Calcolo Codice Fiscale</b></h1><!--titolo-->
+	</div>
+    
+    <!--Fase input-->
+    <div class="cognome">
+        <label for="cognome">Cognome</label>
+        <Input type="text" id="COGN"><br>
+    </div>
+    <div class="nome">
+        <label for="nome">Nome</label>
+        <Input type="text"  id="NOM"><br>
+    </div>
+
+    <div class="sesso">
+        
+        <input type="radio" name="sesso" value="M" id="SES"><label>M</label>
+        <input type="radio" name="sesso" value="F" id="SES"><label>F</label>
+    
+    </div><br>
+
+    <div class="data">
+        <label for="dataDiNascita">Data di nascita</label>
+        <Input type="date" id="DAT"><br>
+    </div>
+    <div class="provincie">
+    <label for="province">Province</label>
+    <input list="province" name="province">
+        <datalist id="province">
+                <option value="Abano Terme(A001)">
+                <option value="Abbadia Cerreto(A004)">
+                <option value="Abbadia Lariana(A005)">
+
+                
+        </datalist><br>
+    </div>
+    <button onclick="leggiInformzione()">Calcola codice</button><br>
+    <p id=RIS></p>
+
+</form>
+</body>
+</html>
