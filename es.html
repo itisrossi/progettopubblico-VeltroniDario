@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>ESERCIZIO</title>
+        <input type="number" id="n">
+        <p id="R"><br></p>
+        <input type="button" value="GO!" onclick="CODE()">
+    </head>
+    <body>
+        <script>
+                
+                
+
+        
+            function CODE(){
+                let n = Number(document.getElementById("n").value);
+                let N = 2 * n - 1;
+                let partenza = 0;
+                let arrivo = 2 * n - 1;
+                let quadrato = new Array(N);
+                for (let i = 0; i < N; i++) {   //creare una matrice
+                    quadrato[i] = new Array(N);
+                }
+            
+                
+                
+                //riempimento matrice
+                
+                let numero = n;
+                for (let v = 0; v < n; v++) {
+                   for (let i = partenza; i < arrivo; i++) {    //per mettere tutti i valori in quadrato 
+                    for (let j = partenza; j < arrivo; j++){
+                        quadrato[i][j] = numero;
+                    }
+                    }
+                partenza++;
+                arrivo--;
+                numero--;
+                }
+                
+                
+                
+                
+                //output
+                let W = "";
+
+                if (n.lenght == 1){}
+
+
+                for (let a = 0; a < N; a++) {
+                    
+                    for (let i = 0; i < N; i++) {
+                    W = W + quadrato[a][i];
+                        if (i == N-1){
+                            W =W + "<br>";
+                        }
+                    }
+                }
+                document.getElementById("R").innerHTML = W;
+                
+                
+            }
+                
+        </script>
+
+    </body>
+</html>
