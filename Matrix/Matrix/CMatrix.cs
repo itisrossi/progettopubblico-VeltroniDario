@@ -98,6 +98,32 @@ namespace Matrix
             return c;
 
         }
+        public void Refill(int da, int a)
+        {
+            Random r = new Random();
+            for (int i = 0; i < this.rows; i++)
+            {
+                for (int j = 0; j < this.columns; j++)
+                {
+                    this.matrix[i, j] = r.Next(da, a+1);
+                }
+            }
+        }
+        public void PrintMatrix()
+        {
+            for (int i = 0; i < this.rows; i++)
+            {
+                for (int j = 0; j < this.columns; j++)
+                {
+                    if (j % this.columns == 0)
+                    {
+                        Console.WriteLine("\n");
+                    }
+                    Console.Write(this.matrix[i, j] + "\t");
+                }
+            }
+            Console.WriteLine("\n");
+        }
 
         public void Trasposta()
         {
@@ -147,8 +173,11 @@ namespace Matrix
         public static CMatrix operator *(CMatrix a, CMatrix b)
         {
             CMatrix c = new CMatrix(a.rows,b.columns);
-           
-            if(a.columns != b.rows)
+            long r = 0;
+            long[] c1 = new long[b.columns];
+            long[] c2 = new long[a.rows];
+
+            if (a.columns != b.rows)
             {
                 throw new ArgumentException("Impossible to do the moltiplication");
             }
@@ -157,13 +186,23 @@ namespace Matrix
             {
                 for (int j=0; j< b.columns; j++)
                 {
-                    Task.Run(() => ChangeVariable(ref c, i, j, a, b));
+                    for (int n = 0; n < b.columns; n++)
+                    {
+                        c1[n] = a.matrix[i,n];
+                    }
+                    for (int m = 0; m < b.columns; m++)
+                    {
+                        c2[m] = b.matrix[m, j];
+                    }
+                    for (int l = 0; l < a.rows; l++)
+                    {
+                        r += c1[l] * c2[l];
+                    }
+                    c.matrix[i, j] = r;
+                    r = 0;
                 }
             }
-            Task.WhenAll().ContinueWith(_ =>
-            {
-                return c;
-            });
+            
             return c;
 
         }

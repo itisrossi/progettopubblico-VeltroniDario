@@ -8,17 +8,12 @@
             CMatrix b = new CMatrix();
             CMatrix c = new CMatrix();
             Random r = new Random();
-            for(int i = 0; i < a.rows; i++)
-            {
-                for (int j = 0; j < a.columns; j++)
-                {
-                    a.matrix[i, j] = r.Next(0, 2);
-                    b.matrix[i, j] = r.Next(0, 2);
-                }
-            }
-            c = a + b;
+            a.Refill(0, 3);
+            a.PrintMatrix();
+            
 
-            Console.WriteLine("Hello, World!");
+            
+            Console.ReadLine();
         }
     }
 }
