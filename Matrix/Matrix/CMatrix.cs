@@ -48,8 +48,23 @@ namespace Matrix
         }
         public CMatrix()
         {
-            rows = 3;
-            columns = 3;
+            rows = 2;
+            columns = 2;
+            matrix = new long[rows, columns];
+            Random r = new Random();
+            for (int i = 0; i < rows; i++)
+            {
+                for (int j = 0; j < columns; j++)
+                {
+                    matrix[i, j] = 0;
+                }
+            }
+        }
+
+        public CMatrix(int n)
+        {
+            rows = n;
+            columns = n;
             matrix = new long[rows, columns];
             Random r = new Random();
             for (int i = 0; i < rows; i++)
@@ -62,9 +77,9 @@ namespace Matrix
         }
 
 
-        
 
-        
+
+
         public static CMatrix operator + (CMatrix a, CMatrix b)
         {
             CMatrix c = new CMatrix(a.rows, a.columns);
@@ -77,6 +92,10 @@ namespace Matrix
                         c.matrix[i, j] = a.matrix[i, j] + b.matrix[i,j];
                     }
                 }
+            }
+            else
+            {
+                Console.WriteLine("\nLe matrici non possono essere sommate\n");
             }
             return c;
             
@@ -94,6 +113,10 @@ namespace Matrix
                         c.matrix[i, j] = a.matrix[i, j] - b.matrix[i, j];
                     }
                 }
+            }
+            else
+            {
+                Console.WriteLine("\nCon queste matrici è impossibile eseguire la differenza\n");
             }
             return c;
 
@@ -117,7 +140,7 @@ namespace Matrix
                 {
                     if (j % this.columns == 0)
                     {
-                        Console.WriteLine("\n");
+                        Console.WriteLine("\n\n");
                     }
                     Console.Write(this.matrix[i, j] + "\t");
                 }
@@ -146,28 +169,6 @@ namespace Matrix
                     end = true;
                 }
             }
-        }
-
-        static CMatrix ChangeVariable(ref CMatrix c, int I, int J, CMatrix a, CMatrix b)
-        {
-            long r = 0;
-            long[] c1 = new long[b.columns];
-            long[] c2 = new long[a.rows];
-            for(int j=0;j < b.columns; j++)
-            {
-                c1[j] = a.matrix[I,j];
-            }
-            for (int i = 0; i < b.columns; i++)
-            {
-                c2[i] = a.matrix[i, J];
-            }
-            for (int i=0; i < a.rows; i++)
-            {
-                r += c1[i] * c2[i];
-            }
-
-            c.matrix[I, J] = r;
-            return c;
         }
 
         public static CMatrix operator *(CMatrix a, CMatrix b)
@@ -202,12 +203,33 @@ namespace Matrix
                     r = 0;
                 }
             }
-            
             return c;
-
         }
 
+        public int Determinante()
+        {
+            if(this.rows==3 && this.columns == 3)
+            {
+                this.Sarrus();
+            }
+            return 0;
+        }
 
+        private int Sarrus()
+        {
+            long c=1;
+            int x=0,y=0;
+            for(int i = 0; i < 3; i++)
+            {
+                for(int j =0; j < 3; j++)
+                {
+                    c += c * this.matrix[x, y];
+                    x++;
+                    y++;
+
+                }
+            }
+        }
 
     }
 }
