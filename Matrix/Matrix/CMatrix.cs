@@ -221,6 +221,7 @@ namespace Matrix
             int x=0,y=0;
             for(int i = 0; i < 3; i++)
             {
+                x = i; y = i;
                 for(int j =0; j < 3; j++)
                 {
                     c += c * this.matrix[x, y];
