@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\veltr\\OneDrive\\Desktop\\Matrix\\Matrix\\Matrix.csproj",
+      "projectUniqueName": "C:\\Users\\veltr\\OneDrive\\Desktop\\github\\progettopubblico-VeltroniDario\\Matrix\\Matrix\\Matrix.csproj",
       "projectName": "Matrix",
-      "projectPath": "C:\\Users\\veltr\\OneDrive\\Desktop\\Matrix\\Matrix\\Matrix.csproj",
+      "projectPath": "C:\\Users\\veltr\\OneDrive\\Desktop\\github\\progettopubblico-VeltroniDario\\Matrix\\Matrix\\Matrix.csproj",
       "packagesPath": "C:\\Users\\veltr\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\veltr\\OneDrive\\Desktop\\Matrix\\Matrix\\obj\\",
+      "outputPath": "C:\\Users\\veltr\\OneDrive\\Desktop\\github\\progettopubblico-VeltroniDario\\Matrix\\Matrix\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\veltr\\AppData\\Roaming\\NuGet\\NuGet.Config",
