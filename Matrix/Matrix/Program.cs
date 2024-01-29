@@ -11,7 +11,7 @@
 
             a.PrintMatrix();
 
-
+            
             Console.WriteLine("\n\n\n\nIl determinante è " + a.Determinante());
             //b.Copia(a.Riduci(a.matrix[0, 0]));
             //a.PrintMatrix();
@@ -20,4 +20,4 @@
             Console.ReadLine();
         }
     }
-}
+}//LISTA:  aggiungi, togli, arrivare ad un posizione 

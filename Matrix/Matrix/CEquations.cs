@@ -61,14 +61,9 @@ namespace Matrix
         }
         public CEquations()
         {
-            Console.WriteLine("\nQuante incognite vuoi avere nel sistema?");
+            Console.WriteLine("\nQuante incognite vuoi avere nel sistema? (>2)");
             int ne = Convert.ToInt32(Console.ReadLine());
-            switch (ne)
-            {
-                case 1:
-                    Console.WriteLine("");
-                    break;
-            }
+            
 
         }
     }

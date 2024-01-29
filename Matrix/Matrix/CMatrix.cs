@@ -60,6 +60,17 @@ namespace Matrix
                 }
             }
         }
+        public long this[int row, int column]
+        {
+            get
+            {
+                return matrix[row, column];
+            }
+            set
+            {
+                matrix[row, column] = value;
+            }
+        }
 
         public CMatrix(int n)
         {
@@ -190,7 +201,7 @@ namespace Matrix
             }
         }
 
-        public static CMatrix operator *(CMatrix a, CMatrix b)
+        /*public static CMatrix operator *(CMatrix a, CMatrix b)
         {
             CMatrix c = new CMatrix(a.rows, b.columns);
             long r = 0;
@@ -223,6 +234,11 @@ namespace Matrix
                 }
             }
             return c;
+        }*/
+
+        public static CMatrix operator *(CMatrix a, CMatrix b)
+        {
+
         }
 
         public long Determinante()
