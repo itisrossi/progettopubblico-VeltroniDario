@@ -61,9 +61,44 @@ namespace Matrix
         }
         public CEquations()
         {
-            Console.WriteLine("\nQuante incognite vuoi avere nel sistema? (>2)");
-            int ne = Convert.ToInt32(Console.ReadLine());
-            
+            Console.WriteLine("\nInserisci tutti i valori di a,b,c,j,k,l\n");
+            Console.WriteLine("\nLa forma del sitema è\na1x + b1y + c1z = j\na2x + b2y + c2z = k\na3x + b3y + c3z = l\n");
+            Console.WriteLine("\na1 -->");
+            a[0] = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nb1 -->");
+            b[0] = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nc1 -->");
+            c[0] = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nj -->");
+            j = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\na2 -->");
+            a[1] = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nb2 -->");
+            b[1] = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nc2 -->");
+            c[1] = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nk -->");
+            k = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\na3 -->");
+            a[2] = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nb3 -->");
+            b[2] = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nc3 -->");
+        }
+
+
+        public void Calculates()
+        {
 
         }
     }

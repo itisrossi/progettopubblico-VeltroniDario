@@ -235,11 +235,59 @@ namespace Matrix
             }
             return c;
         }*/
+        public static long Do(CMatrix a, CMatrix b,int i,int j)
+        {
+
+            long r = 0;
+            long[] c1 = new long[b.columns];
+            long[] c2 = new long[a.rows];
+           
+            for (int n = 0; n < a.rows; n++)
+            {
+                    c1[n] = a.matrix[n, j];
+                            }
+            for (int m = 0; m < b.columns; m++)
+            {
+                c2[m] = b.matrix[i, m];
+            }
+            for (int l = 0; l < a.rows; l++)
+            {
+                    r += c1[l] * c2[l];
+            }
+            
+            return r;
+        }
 
         public static CMatrix operator *(CMatrix a, CMatrix b)
         {
+            CMatrix c = new CMatrix(a.rows, b.columns);
+            long[] p = new long[b.columns];
+            if (a.columns != b.rows)
+            {
+                throw new ArgumentException("\nImpossible to do the moltiplication\n");
+            }
+            Task[] tasks = new Task[a.rows];
 
+            //for (int i=0;i<a.rows; i++)
+            //{
+                tasks[0] = Task.Run(() =>
+                {
+                    for(int j=0; j<b.columns; j++)
+                    {
+                        long y = Do(a,b,0,j);
+                        c.matrix[0,j] = y;
+                    }
+                    
+                });
+            //}
+            Task.WaitAll(tasks[0]);
+            return c;
+
+            S
+            
         }
+
+       
 
         public long Determinante()
         {
