@@ -8,9 +8,9 @@ namespace Matrix
 {
     internal class CEquations
     {
-        private int[] _a; 
-        private int[] _b;
-        private int[] _c;
+        private int[] _a = new int[3]; 
+        private int[] _b = new int[3];
+        private int[] _c = new int[3];
         private double _x, _y, _z;
         private int _j, _k, _l;
         //ax + by + cz = j 
@@ -94,12 +94,19 @@ namespace Matrix
             b[2] = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("\nc3 -->");
+            c[2] = Convert.ToInt32(Console.ReadLine());
+
+            Console.WriteLine("\nl -->");
+            l = Convert.ToInt32(Console.ReadLine());
+
         }
 
 
         public void Calculates()
         {
-
+            
+            
+            
         }
     }
 

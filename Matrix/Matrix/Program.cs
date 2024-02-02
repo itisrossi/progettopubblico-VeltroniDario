@@ -9,15 +9,15 @@
             CMatrix b = new CMatrix(2);
             CMatrix c = new CMatrix(2);
 
-            a.Refill(1, 3);
+            a.Refill(1, 2);
 
             a.PrintMatrix();
-            b.Refill(1, 3);
+            b.Refill(1, 2);
 
             b.PrintMatrix();
             c = a * b;
             c.PrintMatrix();
-
+            
 
            
             //b.Copia(a.Riduci(a.matrix[0, 0]));

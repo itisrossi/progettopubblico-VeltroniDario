@@ -201,7 +201,7 @@ namespace Matrix
             }
         }
 
-        /*public static CMatrix operator *(CMatrix a, CMatrix b)
+        public static CMatrix operator *(CMatrix a, CMatrix b)
         {
             CMatrix c = new CMatrix(a.rows, b.columns);
             long r = 0;
@@ -234,7 +234,7 @@ namespace Matrix
                 }
             }
             return c;
-        }*/
+        }
         public static long Do(CMatrix a, CMatrix b,int i,int j)
         {
 
@@ -268,22 +268,24 @@ namespace Matrix
             }
             Task[] tasks = new Task[a.rows];
 
-            //for (int i=0;i<a.rows; i++)
-            //{
+            for (int i=0;i<a.rows; i++)
+            { 
                 tasks[0] = Task.Run(() =>
                 {
-                    for(int j=0; j<b.columns; j++)
-                    {
-                        long y = Do(a,b,0,j);
-                        c.matrix[0,j] = y;
-                    }
-                    
+                        int righe = i;
+                        for(int j=0; j<b.columns; j++)
+                        {
+                            long y = Do(a,b,righe,j);
+                            c.matrix[righe,j] = y;
+                        }
+                   
                 });
-            //}
-            Task.WaitAll(tasks[0]);
+            }
+            Task.WaitAll(tasks);
+            
             return c;
 
-            S
+            
             
         }
 
