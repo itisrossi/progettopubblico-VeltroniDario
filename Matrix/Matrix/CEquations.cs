@@ -8,11 +8,12 @@ namespace Matrix
 {
     internal class CEquations
     {
-        private int[] _a = new int[3]; 
+        private int[] _a = new int[3];
         private int[] _b = new int[3];
         private int[] _c = new int[3];
-        private double _x, _y, _z;
-        private int _j, _k, _l;
+        private int[] _r = new int[3];
+        private float _x, _y, _z;
+
         //ax + by + cz = j 
         public int[] a
         {
@@ -29,36 +30,27 @@ namespace Matrix
             get => _c;
             set => _c = value;
         }
-        public double x
+        public int[] r
+        {
+            get => _r;
+            set => _r = value;
+        }
+        public float x
         {
             get => _x;
             set => _x = value;
         }
-        public double y
+        public float y
         {
             get => _y;
             set => _y = value;
         }
-        public double z
+        public float z
         {
             get => _z;
             set => _z = value;
         }
-        public int j
-        {
-            get => _j;
-            set => _j = value;
-        }
-        public int k
-        {
-            get => _k;
-            set => _k = value;
-        }
-        public int l
-        {
-            get => _l;
-            set => _l = value;
-        }
+
         public CEquations()
         {
             Console.WriteLine("\nInserisci tutti i valori di a,b,c,j,k,l\n");
@@ -73,7 +65,7 @@ namespace Matrix
             c[0] = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("\nj -->");
-            j = Convert.ToInt32(Console.ReadLine());
+            r[0] = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("\na2 -->");
             a[1] = Convert.ToInt32(Console.ReadLine());
@@ -85,7 +77,7 @@ namespace Matrix
             c[1] = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("\nk -->");
-            k = Convert.ToInt32(Console.ReadLine());
+            r[1] = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("\na3 -->");
             a[2] = Convert.ToInt32(Console.ReadLine());
@@ -97,18 +89,85 @@ namespace Matrix
             c[2] = Convert.ToInt32(Console.ReadLine());
 
             Console.WriteLine("\nl -->");
-            l = Convert.ToInt32(Console.ReadLine());
+            r[2] = Convert.ToInt32(Console.ReadLine());
+
+
 
         }
 
 
         public void Calculates()
         {
+            CMatrix original = new CMatrix(3);
+            for (int i = 0; i < 3; i++)
+            {
+                original.matrix[i, 0] = this.a[i];
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                original.matrix[i, 1] = this.b[i];
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                original.matrix[i, 2] = this.c[i];
+            }
+
+            CMatrix MatrixX = new CMatrix(3);
+            for (int i = 0; i < 3; i++)
+            {
+                MatrixX.matrix[i, 0] = this.r[i];
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                MatrixX.matrix[i, 1] = this.b[i];
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                MatrixX.matrix[i, 2] = this.c[i];
+            }
+
+
+            CMatrix MatrixY = new CMatrix(3);
+            for (int i = 0; i < 3; i++)
+            {
+                MatrixY.matrix[i, 0] = this.a[i];
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                MatrixY.matrix[i, 1] = this.r[i];
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                MatrixY.matrix[i, 2] = this.c[i];
+            }
+            CMatrix MatrixZ = new CMatrix(3);
+            for (int i = 0; i < 3; i++)
+            {
+                MatrixZ.matrix[i, 0] = this.a[i];
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                MatrixZ.matrix[i, 1] = this.b[i];
+            }
+            for (int i = 0; i < 3; i++)
+            {
+                MatrixZ.matrix[i, 2] = this.r[i];
+            }
+
+
+            /*long a = MatrixX.Determinante();
+            long b = MatrixY.Determinante();
+            long c = MatrixZ.Determinante();
+            long d = original.Determinante();*/
+
+
+
             
-            
-            
+            this.x = MatrixX.Determinante() / original.Determinante();
+            this.y = MatrixY.Determinante() / original.Determinante();
+            this.z = MatrixZ.Determinante() / original.Determinante();
+
         }
     }
 
-    }
-
+}

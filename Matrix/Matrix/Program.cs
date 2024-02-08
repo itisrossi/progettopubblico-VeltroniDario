@@ -4,24 +4,14 @@
     {
         static void Main(string[] args)
         {
-            //CMatrix b = new CMatrix(4);
-            CMatrix a = new CMatrix(2);
-            CMatrix b = new CMatrix(2);
-            CMatrix c = new CMatrix(2);
 
-            a.Refill(1, 2);
-
-            a.PrintMatrix();
-            b.Refill(1, 2);
-
-            b.PrintMatrix();
-            c = a * b;
-            c.PrintMatrix();
+         
             
 
-           
-            //b.Copia(a.Riduci(a.matrix[0, 0]));
-            //a.PrintMatrix();
+            CEquations e = new CEquations();
+            e.Calculates();
+
+            Console.WriteLine("x = {0:F2} y = {0:F2} z = {0:F2}", e.x, e.y, e.z);
 
 
             Console.ReadLine();

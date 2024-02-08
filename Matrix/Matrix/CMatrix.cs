@@ -235,7 +235,7 @@ namespace Matrix
             }
             return c;
         }
-        public static long Do(CMatrix a, CMatrix b,int i,int j)
+        /*public static long Do(CMatrix a, CMatrix b,int i,int j)
         {
 
             long r = 0;
@@ -288,7 +288,7 @@ namespace Matrix
             
             
         }
-
+        */
        
 
         public long Determinante()
