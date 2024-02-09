@@ -12,7 +12,7 @@ namespace Matrix
         private int[] _b = new int[3];
         private int[] _c = new int[3];
         private int[] _r = new int[3];
-        private float _x, _y, _z;
+        private double _x, _y, _z;
 
         //ax + by + cz = j 
         public int[] a
@@ -35,17 +35,17 @@ namespace Matrix
             get => _r;
             set => _r = value;
         }
-        public float x
+        public double x
         {
             get => _x;
             set => _x = value;
         }
-        public float y
+        public double y
         {
             get => _y;
             set => _y = value;
         }
-        public float z
+        public double z
         {
             get => _z;
             set => _z = value;
@@ -155,17 +155,14 @@ namespace Matrix
             }
 
 
-            /*long a = MatrixX.Determinante();
-            long b = MatrixY.Determinante();
-            long c = MatrixZ.Determinante();
-            long d = original.Determinante();*/
+            int a = MatrixX.Determinante();
+            int b = MatrixY.Determinante();
+            int c = MatrixZ.Determinante();
+            int d = original.Determinante();
 
-
-
-            
-            this.x = MatrixX.Determinante() / original.Determinante();
-            this.y = MatrixY.Determinante() / original.Determinante();
-            this.z = MatrixZ.Determinante() / original.Determinante();
+            this.x = (double)a / d;
+            this.y = (double)b / d;
+            this.z = (double)c / d;
 
         }
     }

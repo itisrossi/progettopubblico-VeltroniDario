@@ -291,7 +291,7 @@ namespace Matrix
         */
        
 
-        public long Determinante()
+        public int Determinante()
         {
             long d = 0;
             CMatrix r = new CMatrix(this.rows - 1);
@@ -303,15 +303,15 @@ namespace Matrix
             }
             if (this.rows == 1)
             {
-                return this.matrix[0, 0];
+                return Convert.ToInt32(this.matrix[0, 0]);
             }
             if (this.rows == 2)
             {
-                return (this.matrix[0, 0] * this.matrix[1, 1]) - (this.matrix[1, 0] * this.matrix[0, 1]);
+                return Convert.ToInt32((this.matrix[0, 0] * this.matrix[1, 1]) - (this.matrix[1, 0] * this.matrix[0, 1]));
             }
             if (this.rows == 3)
             {
-                return this.Sarrus();
+                return Convert.ToInt32(this.Sarrus());
             }
             for (int i = 0; i < this.rows; i++)
             {
@@ -319,8 +319,8 @@ namespace Matrix
 
                 d += (long)Math.Pow(-1, (i + 2)) * this.matrix[0, i] * r.Determinante();
             }
-
-            return d;
+            int result = Convert.ToInt32(d);
+            return result;
 
         }
 
@@ -332,7 +332,7 @@ namespace Matrix
 
             c1 = (this.matrix[0, 0] * this.matrix[1, 1] * this.matrix[2, 2]) + (this.matrix[0, 1] * this.matrix[1, 2] * this.matrix[2, 0]) + (this.matrix[0, 2] * this.matrix[1, 0] * this.matrix[2, 1]);
             c2 = -(this.matrix[0, 2] * this.matrix[1, 1] * this.matrix[2, 0]) - (this.matrix[0, 0] * this.matrix[1, 2] * this.matrix[2, 1]) - (this.matrix[0, 1] * this.matrix[1, 0] * this.matrix[2, 2]);
-            return c1 + c2;
+            return Convert.ToInt32( c1 + c2);
         }
 
         public CMatrix Riduci(int X, int Y)

@@ -11,7 +11,7 @@
             CEquations e = new CEquations();
             e.Calculates();
 
-            Console.WriteLine("x = {0:F2} y = {0:F2} z = {0:F2}", e.x, e.y, e.z);
+            Console.WriteLine("x = " + e.x  + " y =  " + e.y + " z = " +  e.z);
 
 
             Console.ReadLine();
