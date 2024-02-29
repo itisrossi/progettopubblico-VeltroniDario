@@ -9,14 +9,15 @@ namespace Trie
 {
     public class CNode
     {
-        internal int data;
+        int data;
         protected int letterValue;
-        internal CNode prev;
-        internal CNode next;
+        CNode prev;
+
+
+        CNode next;
         public CNode(string letter)
         {
             
-
             switch (letter)
             {
                 case "A":
