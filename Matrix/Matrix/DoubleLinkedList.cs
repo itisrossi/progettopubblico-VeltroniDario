@@ -10,7 +10,7 @@ namespace Matrix
     internal class DoubleLinkedList
     {
         internal DNode head;
-        internal void InsertFront(DoubleLinkedList doubleLinkedList, int data)
+        internal void Inserisci_Davanti(DoubleLinkedList doubleLinkedList, int data)
         {
             DNode newNode = new DNode(data);
 
@@ -22,7 +22,7 @@ namespace Matrix
             }
             doubleLinkedList.head = newNode;
         }
-        internal void InsertLast(DoubleLinkedList doubleLinkedList, int data)
+        internal void Insert_Last(DoubleLinkedList doubleLinkedList, int data)
         {
             DNode newNode = new DNode(data);
             if (doubleLinkedList.head == null)
@@ -31,12 +31,12 @@ namespace Matrix
                 doubleLinkedList.head = newNode;
                 return;
             }
-            DNode lastNode = GetLastNode(doubleLinkedList);
+            DNode lastNode = LastNode(doubleLinkedList);
             lastNode.next = newNode;
             newNode.prev = lastNode;
         }
 
-        internal DNode GetLastNode(DoubleLinkedList singlyList)
+        internal DNode LastNode(DoubleLinkedList singlyList)
         {
             DNode temp = singlyList.head;
             while (temp.next != null)
@@ -48,7 +48,7 @@ namespace Matrix
 
 
 
-        internal void InsertAfter(DNode prev_node, int data)
+        internal void Insert_After(DNode prev_node, int data)
         {
             if (prev_node == null)
             {
