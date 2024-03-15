@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "9asRqXHBrn+lkNeR/QsE/A5ufsB00HJ3LYXvBiDG2J6Scg3dLW/RSVnGuCb6zAryQ25g/FPBYHa610F7BXAhYQ==",
+  "dgSpecHash": "yq/j2OVJBHEHei1X/tEne5wipi7sBCI4sNfQvxALog/k8UTeFCA/Pe2tOjunOpK55sq7MLPYpG2epvbqLMO/WA==",
   "success": true,
-  "projectFilePath": "C:\\Users\\9698074\\Desktop\\Github\\progettopubblico-VeltroniDario\\Trie\\Trie\\Trie\\Trie.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\9698074\\Desktop\\github\\progettopubblico-VeltroniDario\\Trie\\Trie\\Trie\\Trie.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\9698074\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\6.0.19\\microsoft.windowsdesktop.app.ref.6.0.19.nupkg.sha512",
+    "C:\\Users\\9698074\\.nuget\\packages\\microsoft.netcore.app.ref\\6.0.19\\microsoft.netcore.app.ref.6.0.19.nupkg.sha512",
+    "C:\\Users\\9698074\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\6.0.19\\microsoft.aspnetcore.app.ref.6.0.19.nupkg.sha512",
+    "C:\\Users\\9698074\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\6.0.19\\microsoft.netcore.app.host.win-x64.6.0.19.nupkg.sha512"
+  ],
   "logs": []
 }
