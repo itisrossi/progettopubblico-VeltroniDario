@@ -10,7 +10,7 @@ namespace Trie
     internal class TrieNode
     {
         public bool IsWord { get; set; }
-        List<string> words;
+        public List<string> words = new List<string>();
         public Dictionary<char, TrieNode> Children { get; } = new Dictionary<char, TrieNode>();
     }
 }

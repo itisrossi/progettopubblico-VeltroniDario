@@ -7,11 +7,11 @@
         static void Main(string[] args)
         {
             CTrie trie = new CTrie();
-            
 
 
 
-            StreamReader fileRead = File.OpenText(@"C:\Users\9698074\Desktop\rockyou.txt");
+
+            StreamReader fileRead = File.OpenText(@"..\\..\\..\\txt\\parole.txt");
             string parola;
             Console.WriteLine("Partito!");
             while ((parola = fileRead.ReadLine()) != null)
@@ -19,6 +19,7 @@
                 trie.AddWord(parola);
             }
             bool exit = false;
+            trie.anagramma("nave");
             while (!exit)
             {
                 Console.WriteLine("\nInserisci una parola da cercare:");
