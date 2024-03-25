@@ -19,10 +19,10 @@
                 trie.AddWord(parola);
             }
             bool exit = false;
-            trie.anagramma("nave");
+            Console.WriteLine("Tutte le parole sono state inserite!");
             while (!exit)
             {
-                Console.WriteLine("\nInserisci una parola da cercare:");
+                Console.WriteLine("\nScrivi una parola da cercare:    (scrivi 'exit' per terminare il programma)");
                 string word = Console.ReadLine();
                 if(word == "exit") {
                     exit = true;
@@ -31,7 +31,7 @@
                 trie.Search(word);
 
             }
-            Console.WriteLine("Terminato");
+            
             
 
             Console.ReadLine();
