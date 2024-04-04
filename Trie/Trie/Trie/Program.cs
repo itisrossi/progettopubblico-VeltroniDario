@@ -26,15 +26,11 @@
                 string word = Console.ReadLine();
                 if(word == "exit") {
                     exit = true;
-                    break;
                 }
                 trie.Search(word);
 
             }
             
-            
-
-            Console.ReadLine();
         }
     }
 }

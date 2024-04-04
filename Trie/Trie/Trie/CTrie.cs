@@ -31,15 +31,7 @@ namespace Trie
                 Console.WriteLine("\nLa parola <" + word + "> è già presente nel Trie\n");
                 return;
             }
-            /*foreach (char c in keyword)
-            {
-                if (!node.Children.ContainsKey(c))
-                {
-                    node.Children[c] = new TrieNode();
-                }
-                    
-                node = node.Children[c];
-            }*/
+            
             for(int i = 0; i < keyword.Length; i++)
             {
                 if (!node.Children.ContainsKey(keyword[i]))
