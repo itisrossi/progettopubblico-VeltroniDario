@@ -4,18 +4,12 @@
     {
         static void Main(string[] args)
         {
-
-         
-            
-            DoubleLinkedList doubleLinkedList = new DoubleLinkedList();
-            doubleLinkedList.InsertFront(doubleLinkedList, 3);
-
-            /*
-            CEquations e = new CEquations();
-            e.Calculates();
-
-            Console.WriteLine("x = " + e.x  + " y =  " + e.y + " z = " +  e.z);
-            */
+            CMatrix m = new CMatrix(3,3);
+            CMatrix m2 = new CMatrix(2,2);
+            m.Refill(1,4);
+            m.PrintMatrix();
+            m2.Copia(m.Riduci(2,2));
+            m2.PrintMatrix();
 
             Console.ReadLine();
         }         
