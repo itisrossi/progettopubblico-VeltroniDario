@@ -8,9 +8,6 @@
         {
             CTrie trie = new CTrie();
 
-
-
-
             StreamReader fileRead = File.OpenText(@"..\\..\\..\\txt\\parole.txt");
             string parola;
             Console.WriteLine("Partito!");

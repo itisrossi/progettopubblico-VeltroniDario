@@ -21,6 +21,23 @@ namespace Parolando
 
             return risultato;
         }
+        public string key(string[] word)
+        {
+            string W = "";
+            for(int i = 0; i < word.Length; i++)
+            {
+                W += word[i];
+            }
+            char[] caratteri = W.ToCharArray();
+
+            
+
+            Array.Sort(caratteri);
+
+            string risultato = new string(caratteri);
+
+            return risultato;
+        }
         public void AddWord(string word)
         {
             var node = _root;
@@ -45,6 +62,17 @@ namespace Parolando
             }
 
             node.IsWord = true;
+        }
+        public void FillTrie()
+        {
+            StreamReader fileRead = File.OpenText(@"..\\..\\..\\txt\\parole.txt");
+            string parola;
+            Console.WriteLine("Partito!");
+            while ((parola = fileRead.ReadLine()) != null)
+            {
+                this.AddWord(parola);
+            }
+            Console.WriteLine("Tutte le parole sono state inserite!");
         }
         public void anagramma(string word)
         {
@@ -97,8 +125,41 @@ namespace Parolando
                 Console.WriteLine("\nLa parola <" + word + "> NON c'è nel Trie\n");
                 return false;
             }
+        }
 
+        public string ArrayToString(string[] a)
+        {
+            string b = "";
+            for (int i = 0; i < a.Length; i++)
+            {
+                b += a[i];
+            }
+            return b;
+        }
+        public bool Search(string[] word)
+        {
+            var node = _root;
+            string keyword = key(word);
+            foreach (char c in keyword)
+            {
+                if (!node.Children.ContainsKey(c))
+                {
+                    Console.WriteLine("\nLa parola <" + word + "> NON c'è nel Trie\n");
+                    return false;
+                }
 
+                node = node.Children[c];
+            }
+            if (node.words.Contains(ArrayToString(word)))
+            {
+                Console.WriteLine("\nLa parola <" + word + "> è presente nel Trie\n");
+                return node.IsWord;
+            }
+            else
+            {
+                Console.WriteLine("\nLa parola <" + word + "> NON c'è nel Trie\n");
+                return false;
+            }
         }
         private bool Search2(string word)
         {
