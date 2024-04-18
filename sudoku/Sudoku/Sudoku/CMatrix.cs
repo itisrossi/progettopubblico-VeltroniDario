@@ -159,6 +159,38 @@ namespace Sudoku
                 }
             }
         }
+
+
+
+        public void ItsOk()
+        {
+
+        }
+
+
+
+        public void Start(int r, int c) //numero random di partenza e di fine
+        {
+            Random random = new Random();
+            this.matrix[r, c] = random.Next(0, 10);
+            if(ItsOk(this.matrix) == true)
+            {
+                Start(r, c++);
+            }
+            
+        }
+
+
+
+
+
+
+
+
+
+
+
+
         public void PrintMatrix()
         {
             for (int i = 0; i < this.rows; i++)
