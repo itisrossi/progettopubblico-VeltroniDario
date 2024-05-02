@@ -9,7 +9,7 @@ namespace Grafi
     internal class Grafo
     {
         private int[,] matriceAdiacenza;
-        private int numeroNodi;
+        public int numeroNodi;
 
         public Grafo(int numeroNodi)
         { 
@@ -22,7 +22,7 @@ namespace Grafi
                     matriceAdiacenza[i, j] = 0;
                 }
             }
-
+           
         }
 
         public void AggiungiArco(int nodo1, int nodo2)
@@ -33,7 +33,7 @@ namespace Grafi
             }
 
             matriceAdiacenza[nodo1, nodo2] = 1;
-            matriceAdiacenza[nodo2, nodo1] = 1;
+            //matriceAdiacenza[nodo2, nodo1] = 1;
         }
 
         public void RimuoviArco(int nodo1, int nodo2)
@@ -94,10 +94,12 @@ namespace Grafi
             {
                 for (int j = 0; j < matriceAdiacenza.GetLength(1); j++)
                 {
+                    
                     Console.Write(matriceAdiacenza[i, j] + " ");
                 }
                 Console.WriteLine();
             }
+            Console.WriteLine("\n\n");
         }
     }
 }
