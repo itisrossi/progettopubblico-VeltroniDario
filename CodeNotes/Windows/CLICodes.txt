@@ -1,0 +1,60 @@
+whoami                                        			 to see your user name.
+
+cd %HOMEPATH%                      			  to change directory to the home directory
+
+dir                                               			  to display the contents of the current directory you can use also "tree"
+
+dir /S /P  explanation--->
+/S                                                                                              This option tells the dir command to include all subdirectories in the listing
+/P                                                 			 This option makes the output pause after each screenful of information
+		
+dir apple*     explanation--->
+apple*                                                                                       Will show all files that starts with apple and continue with something else
+
+cls                                                                                             to clear all lines
+
+mkdir                                                                                         to create a directory
+
+echo The cow says moo. > apple1\cow.txt                              to create a text file in the apple1 directory called cow.txt (There are two redirectors: ">" and ">>" where ">" will overwrite an existing file while ">>" will append to an existing file.)
+
+type apple1\cow.txt                          			 to display the contents of the cow.txt file.
+
+ copy apple1\cow.txt apple2\notacow.txt                               to create a copy of the cow.txt text file into a new file called notacow.txt in the apple2 directory.
+
+dir /s /b | findstr apple | findstr .txt                 explained--->
+|                                        				The pipe symbol takes the output of the command on its left (dir /s /b) and uses it as input for the command on its right (findstr apple).
+findstr 						A command used to search for specific strings of text within the input it receives
+Step 1: Lists all files in the current directory and its subdirectories (with full paths).
+Step 2: Filters this list to include only those files whose paths or names contain the word "apple".
+Step 3: Further filters this list to include only those files that are text files (.txt extension).
+
+del apple2\manycows.txt  				to delete manycows.txt from the apple2 directory
+
+rmdir one 					 to remove the "one" directory
+
+doskey /history 					to view all the commands you have issued thus far
+
+systeminfo					 to display detailed information about the server's system configuration
+
+tasklist /v                                  			to display a detailed list of all the running processes on the system. The /v option stands for "verbose," which means it will provide additional detailed information about each process
+
+date /t 						to see the current date
+
+time /t                    					to see the time
+
+sc query | more 					to view active services and drivers (The sc command can stop and start Windows) services
+
+ net 						to display Windows's special "net" commands
+
+net user 						to list all local user accounts
+
+ipconfig 						to view the IP address, subnet mask, and gateway.
+
+for /L %a in (1,1,255) do @ping -n 1 -w 10 10.91.x.%a > null && echo 10.91.x.%a is up!              explanation-->
+for /L %a (1,1,255) means "count from 1 to 255 and assign that value to a variable called %a"
+do @ping -n 1 -w 10 10.91.x.%a means "ping each address one time and wait 10 milliseconds"
+> null means "discard the output"
+&& checks to see if the ping is successful and if it is, echo 10.91.x.%a is up!
+
+findstr /s /i /m "POPCORN" *.*                                                to search in every fil the word POPCORN and return the file
+	
