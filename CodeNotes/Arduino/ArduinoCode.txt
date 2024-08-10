@@ -1,0 +1,39 @@
+digitalWrite(13, HIGH/LOW)  Acceso-Spento      
+
+delay(1000)  Aspetta un secondo        
+
+analogWrite(NumeroPin, Numero da 0 a 255)   per regolare l'intensità di un led o motore     
+     
+int per inizializzare una variabile 
+
+char per i caratteri
+
+float per i numeri con la virgola
+
+bool per le variabili vere o false
+
+pinMode(13, INPUT/OUTPUT) per dire se il pin è un input o uotput
+
+for ( int i = 0; 1 < 10; i++) { }  ciclo for
+
+Serial.begin(9600)  per inizializzare la porta seriale, tra parentesi c'è la velocità con cui vogliamo comunicare con il PC in queto 
+
+caso 9600 caratteri al secondo
+
+Serial.println("ciao")  per printare una parola nel serial monitor
+
+Serial.print("ciao") scrive ciao senza andare a capo
+
+Serial.read() per leggere i comandi mandati dal pc   si mette ' ' e non " " se sivogliono mettere delle lettere 
+
+digitalRead(7) guarda in che stato è il pin 7
+
+if (digitalRead(7) == HIGH) { } 
+
+analogRead(A0) legge lo stato del pin A0
+
+while (cose) { } ciclo while
+
+int Array[LunghezzaArray] = {cose, detro, array}
+
+pinMode(7, INPUT_PULLUP) per leggere in input un pulsante senza resitenza stando attenti che di base è acceso

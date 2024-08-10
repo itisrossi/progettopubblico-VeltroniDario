@@ -1,0 +1,154 @@
+whoami               display the name of the current user
+hostname             display the name of the machine 
+pwd                  display the current directory (Print Working Directory)
+id                   dispaly the user and group ID's for your account 
+echo             dysplay something (echo "")(echo "$variable")( echo $(cat text.txt) )
+cat              dyspaly the contents of a file (cat text.txt) or concatenate the files(cat file1.txt file2.txt > combined_file.txt)  
+
+cat unsorted | sort | uniq  explaining-->
+		 to print an alphabetically sorted list of words in the "unsorted", removing duplicates files,  file to the screen (The uniq command must be used with the sort command)
+|                this character is called a pipe. It tells Linux to take the output of cat and make it the input for the sort command.
+
+cat unsorted | wc explaining-->
+		 count the file's words, lines, and characters; if you add -w you'll see only the words
+
+
+mkdir            create a directory
+cp               copy something somewhere(cp file1.txt folder1/)
+ls -R            for seeing all files and directories 
+rm -i            for remove something with confirmation
+
+mv               move something into something(mv file1.txt green) green is a directory but you don't have to write also /; (mv file3.txt happypumpkin.moo) for rename file3.txt into happypu...;(mv happypumpkin.moo red/file3.txt ) move and rename the file
+
+
+base64 /dev/urandom | head -c 1M > abigfile.txt    explaining-->
+/dev/urandom     is a special device file in Linux that generates cryptographically secure pseudo-random bytes
+base64           This filter encodes the binary output from /dev/urandom into a text format using base64 encoding
+head -c 1M       This part filters the output from base64  explaining-->
+head             This command typically extracts the first part of a file.
+-c               The -c option specifies the number of bytes to be read. 
+1M               Here, 1M indicates 1 Megabyte of data.
+>                This redirection operator directs the output from the previous command
+abigfile.txt     This specifies the filename where the filtered output will be saved
+
+more             dysplay the file one screen at time, but you can't return back
+less             dysplay the file one screen at time, you have more option for navigate the file
+
+find             search some files 
+
+find . -name "*.txt"  explaining-->
+                 find all files with a .txt extension in the current directory and all subdirectories
+
+find / -name "more" 2>/dev/null explaining-->
+		 look for all directories and files called "more" starting at the root directory (/)
+2>/dev/null      tells Linux to redirect (>) any errors (2) to a black hole (/dev/null)
+
+find . -type d | wc -l explaining-->
+		 count all directories from the current path 
+-type d          saying the type of file to search 
+wc -l            for count things
+
+
+grep             for find files that contain a particular word or phrase (grep -r "This") -r option specifically refers to recursive searching.
+
+ip a             dysplay the network configuration 
+netsat -r        display the kernel IP routing table.
+ping             test connectivity to another ip (ping -c 4 192.168.0.1) send 4 messages to 192.168.0.1
+
+ /etc/network/interfaces               here there are all the contents of the network configuration file
+ifconfig                                         display the network configuration
+
+netstat                                          is a classic networking tool that provides information about network connections, ports in use, routing tables, and network interface statistics
+
+netstat -rn                                    displays the kernel's routing table
+
+tree / -L 1                                     for another view of the Linux directory structure
+
+sudo adduser Dario                     for add a userd named Dario
+
+sudo tree /home                          for view the content of the folder home
+
+/etc/hosts - contains local IP to name mappings
+/etc/fstab - used to mount and unmount filesystems
+/etc/crontab - contains commands that run on a schedule
+/etc.rc0.d-rc5.d - contain commands that run at system startup
+/etc/netplan - contains networking information on modern Linux systems
+
+
+/var/log/dmesg - contains kernel-related messages
+/var/log/syslog - contains all system messages (look here first when there is an issue)
+/var/log/auth.log - contains authentication-related logs
+/var/log/lastlog - contains a log of all logins to the system
+/var/log/wtmp - contains logs of who is currently logged on
+
+sudo last                                      to view login information.
+
+sudo who                                     to see who is currently logged on.
+
+/usr/bin - where commands are kept and where /bin points to
+/usr/sbin - where administrative tools are kept (tools that require elevated privileges)
+/usr/lib - where system libraries are kept (special functions used by other programs)
+/usr/share - where documentation is kept (e.g., man pages)
+/usr/local - where admins should compile tools (e.g., using make)
+
+
+
+sudo fdisk -l | grep xvda             explained--->
+sudo                                             to run commands with superuser (root) privileges
+fdisk -l                                         the fdisk command is a utility for disk partitioning. The -l option (or --list) tells fdisk to list the partition tables for all available disks.
+|                                                   This is a pipe operator. It takes the output of the command on its left (fdisk -l) and passes it as input to the command on its right (grep xvda).
+grep xvda                                    The grep command searches through text. In this case, it filters the output from fdisk -l to show only lines containing the string "xvda".
+"sudo fdisk -l" lists the partition tables of all disks and then the output is piped (|) to "grep xvda", which filters and displays only the lines that contain "xvda".
+
+
+ ps -e                                            to see a list of the active running processes.
+
+openssl genpkey -algorithm rsa -out keyforjohn.key                     explained--->
+openssl: This is the command-line tool for OpenSSL, which provides various cryptographic operations.
+genpkey                                       is used to generate private keys. It is a more recent and flexible command compared to the older genrsa.
+-algorithm RSA                            it specifies the algorithm to use for generating the private key. In this case, RSA (Rivest-Shamir-Adleman) is a widely-used encryption and authentication algorithm.
+-out keyforjohn.key                    output
+Putting it all together, this command generates a new RSA private key and saves it in a file named keyforjohn.key.
+
+base64 keyforjohn.key > keyforjohn.send             explained-->
+base64                                        This is a command-line utility that encodes or decodes data in Base64 format.
+keyforjohn.key                          This is the input file, which contains the RSA private key generated in the previous step.
+>                                                    This is the redirection operator in the shell. It takes the output of the command on its left and writes it to the file specified on its right.
+keyforjohn.send                        This is the output file where the Base64-encoded content of keyforjohn.key will be saved.
+
+base64 -d keyforjohn.base64 > keyfromcybrary.key                 to decode the shared key.
+
+cat keyforjohn.send | mail -s "For John" john           explained-->
+cat keyforjohn.send                   This part of the command reads the contents of the file keyforjohn.send and outputs it to the standard output (the terminal or the next command in the pipeline).
+|                                                       This is the pipe operator. It takes the output of the command on its left (cat keyforjohn.send) and passes it as input to the command on its right (mail -s "For John" john).
+mail -s "For John" john                This is the mail command used to send emails. The -s "For John" option specifies the subject of the email, and john is the recipient's email address.
+Encoding and encrypting are not the same thing. Encoding allows us to send things using mail that would not be possible otherwise.
+
+openssl pkeyutl -encrypt -inkey keyfromcybrary.key -in message.txt -out message.enc         explained-->
+Read the Public Key:
+OpenSSL reads the public key from the file specified by -inkey keyfromcybrary.key.
+Read the Plaintext Message:
+OpenSSL reads the plaintext message from the file specified by -in message.txt.
+Encrypt the Message:
+OpenSSL encrypts the plaintext message using the public key. The encryption method depends on the algorithm specified or implied by the key type (e.g., RSA).
+Write the Encrypted Message:
+OpenSSL writes the encrypted message to the file specified by -out message.enc
+
+su - john                                      for switch account to john
+
+sintax to create a private key:
+openssl genpkey -algorithm rsa -out fileprivate.key
+sintax to create o public key:
+openssl rsa -pubout -in fileprivate.key -out filepublic.key
+So then to encrypt a message:
+openssl pkeyutl -encrypt -inkey [public].key -pubin -in filetoencript.txt -out fileencripted.enc
+Ando to decrypt a message:
+openssl pkeyutl -decrypt -inkey [private].key -in fileencripted.enc -out filetoencript.txt
+
+sudo cp cybrarypublic.key /var/www/html                           to copy the public key to the /var/www/html directory.
+
+openssl dgst -md5 hash1/file1                    to use the digest utility in OpenSSL to create an MD5 hash of file1.
+
+mv hash1/file1 hash1/happypuppy.exe
+
+

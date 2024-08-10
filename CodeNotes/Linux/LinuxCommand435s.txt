@@ -1,0 +1,57 @@
+whoami               display the name of the current user
+hostname             display the name of the machine 
+pwd                  display the current directory (Print Working Directory)
+id                   dispaly the user and group ID's for your account 
+echo             dysplay something (echo "")(echo "$variable")( echo $(cat text.txt) )
+cat              dyspaly the contents of a file (cat text.txt) or concatenate the files(cat file1.txt file2.txt > combined_file.txt)  
+
+cat unsorted | sort | uniq  explaining-->
+		 to print an alphabetically sorted list of words in the "unsorted", removing duplicates files,  file to the screen (The uniq command must be used with the sort command)
+|                this character is called a pipe. It tells Linux to take the output of cat and make it the input for the sort command.
+
+cat unsorted | wc explaining-->
+		 count the file's words, lines, and characters; if you add -w you'll see only the words
+
+
+mkdir            create a directory
+cp               copy something somewhere(cp file1.txt folder1/)
+ls -R            for seeing all files and directories 
+rm -i            for remove something with confirmation
+
+mv               move something into something(mv file1.txt green) green is a directory but you don't have to write also /; (mv file3.txt happypumpkin.moo) for rename file3.txt into happypu...;(mv happypumpkin.moo red/file3.txt ) move and rename the file
+
+
+base64 /dev/urandom | head -c 1M > abigfile.txt    explaining-->
+/dev/urandom     is a special device file in Linux that generates cryptographically secure pseudo-random bytes
+base64           This filter encodes the binary output from /dev/urandom into a text format using base64 encoding
+head -c 1M       This part filters the output from base64  explaining-->
+head             This command typically extracts the first part of a file.
+-c               The -c option specifies the number of bytes to be read. 
+1M               Here, 1M indicates 1 Megabyte of data.
+>                This redirection operator directs the output from the previous command
+abigfile.txt     This specifies the filename where the filtered output will be saved
+
+more             dysplay the file one screen at time, but you can't return back
+less             dysplay the file one screen at time, you have more option for navigate the file
+
+find             search some files 
+
+find . -name "*.txt"  explaining-->
+                 find all files with a .txt extension in the current directory and all subdirectories
+
+find / -name "more" 2>/dev/null explaining-->
+		 look for all directories and files called "more" starting at the root directory (/)
+2>/dev/null      tells Linux to redirect (>) any errors (2) to a black hole (/dev/null)
+
+find . -type d | wc -l explaining-->
+		 count all directories from the current path 
+-type d          saying the type of file to search 
+wc -l            for count things
+
+
+grep             for find files that contain a particular word or phrase (grep -r "This") -r option specifically refers to recursive searching.
+
+ip a             dysplay the network configuration 
+netsat -r        display the kernel IP routing table.
+ping             test connectivity to another ip (ping -c 4 192.168.0.1) send 4 messages to 192.168.0.1
+ 

@@ -1,0 +1,5 @@
+whoami               display the name of the current user
+hostname             display the name of the machine 
+pwd                  display the current directory (Print Working Directory)
+id                   dispaly the user and group ID's for your account 
+ 

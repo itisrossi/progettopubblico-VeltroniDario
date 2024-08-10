@@ -1,0 +1,49 @@
+ls -l per vedere tutti i file presenti nella cartella
+
+ls -al per vedere anche i file nascosti
+
+ls -l | less 
+
+cd <> per entrare nella cartella (se scrivi solo cd va nella HOME delle cartelle)
+
+cd . va nella cartella corrente
+
+cd .. va indietro di una cartella
+
+pwd per mostrare il percorso dei file
+
+ps -ef per vedere tutti i processi in esecuzione (su windows non li vedi tutti)
+
+mkdir <> per creare una cartella
+
+git init per creare la cartella per git
+
+git status per capire lo stato della cartella
+
+git add <> per aggiuntere una modifica a git 
+
+git rm --cached <> per togliere il file da quelli tracciati 
+
+git commit -m "Inserita nuova ricetta" per creare una commit
+
+git checkout -b "develop-Veltroni" per creare un nuovo branck con nome develop-Veltrono
+
+git checkout <> per ritornare nel branch 
+
+rm <> per cancellare qualcosa (rm * cancella tutto anche rm -f*) per cancella re propriotutto rm -rf <>
+
+mv <> <> sposta da a (ES  mv ./pasta ./piatto)
+
+touch <> per creare un file se non è presente e se è presente lo aggiorna
+
+cp <> <> copia un file 
+
+cat <> legge un file
+
+cat rr > ww  copia quello che c'è in rr dentro ww
+
+diff <> <> per vedere delle differenze dai file
+
+grep ww <file> per cercare dei file che contengono ww dentro un file ( se aggiungo un > <file> salva tutto dentro un altro file)
+
+cat <file> > /dev/sound0 fa uscire die byte tramite i device del pc in questo caso sound0 sono le casse 
