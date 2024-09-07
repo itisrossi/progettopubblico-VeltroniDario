@@ -19,6 +19,7 @@ function FunctionFiscalCode(){
    surname = document.getElementById("ICOGN").value;
    Name = document.getElementById("INOM").value;
 
+
    if (surname == surname.toUpperCase() && Name == Name.toUpperCase() ){
     document.getElementById("ICONTR").innerHTML = "";
     let RESULT = "Codice Fiscale:   " + Code_Surname() + Code_Name() + Code_Date_Sex() + Code_Province() + Code_CheckCharacter();
@@ -562,31 +563,31 @@ function Code_Date_Sex(){
 
     INPUT_Month = Number(INPUT_Month)
     switch (INPUT_Month){
-        case 01:
+        case 1:
             Letter_For_Month = "A";
             break;
-        case 02:
+        case 2:
             Letter_For_Month = "B";
             break;
-        case 03:
+        case 3:
             Letter_For_Month = "C";
             break;
-        case 04:
+        case 4:
             Letter_For_Month = "D";
             break;
-        case 05:
+        case 5:
             Letter_For_Month = "E";
             break;
-        case 06:
+        case 6:
             Letter_For_Month = "H";
             break;
-        case 07:
+        case 7:
             Letter_For_Month = "L";
             break;
-        case 08:
+        case 8:
             Letter_For_Month = "M";
             break;
-        case 09:
+        case 9:
             Letter_For_Month = "P";
             break;
         case 10:
