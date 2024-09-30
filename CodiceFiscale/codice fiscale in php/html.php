@@ -1,8 +1,12 @@
+<?php
+    require 'functions.php';
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
        <link rel="stylesheet" href="styles.css"> 
-       <script type="text/javascript" src="CODE.js"></script>
+       
 
        <title>Codice Fiscale</title>
        <style>
@@ -10,8 +14,9 @@
        </style>
     </head>
     <body>
-    
-        <form>
+
+
+        <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" >
         <div class="codicefiscale">
             <h2>CODICE FISCALE</h2>
             <div class="maiuscolo">
@@ -19,27 +24,27 @@
             </div>
             <div class="nome">
                 <p>Inserisci il tuo nome:</p>
-                <input type="text" id="INOM">
-            </div>
+                <input oninput="this.value = this.value.toUpperCase()" type="text" id="INOM" name="name" required>
+            </div> 
             
             <div class="cognome">
                 <p>Inserisci il tuo cognome:</p>
-                <input type="text" id="ICOGN">
+                <input oninput="this.value = this.value.toUpperCase()" type="text" id="ICOGN" name="surname" required>
             </div>
             
             <div class="sesso">
                 <p>Inserisci il tuo sesso:</p>
-                <input type="radio" name="sesso" value="maschio"> Maschio<br>
-                <input type="radio" name="sesso" value="femmina"> Femmina<br>
+                <input type="radio" name="sesso" value="maschio" required> Maschio<br>
+                <input type="radio" name="sesso" value="femmina" required> Femmina<br>
             </div>
             
             <div class="data">
-                <p>Data di nascita: <input type="date" id="data"></p>
+                <p>Data di nascita: <input type="date" id="data" name="data" min="1900-01-01" max="2024-12-31"required></p>
             </div>
             
             <div class="provincia">
-                <P>Inserisci la tua provincia di nascita consigliata:</P>
-                <input list="provincie" name="provincie">
+            <p id="pp">Inserisci la tua provincia di nascita TRA QUELLE CONSIGLIATE:</p>
+                <input list="provincie" name="provincie" id="provinciaInput" required>
                 <datalist id="provincie">
                     <option value="Abano Terme(A001)">
                         <option value="Abbadia Cerreto(A004)">
@@ -16594,16 +16599,54 @@
                         <option value="Zungoli(M203)">
                         <option value="Zungri(M204)">
                 </datalist>
-            </div>
+                 </div>
             <br>
             <div class="bottoni">
-            <input type="reset" value="RESET">
-            <input type="submit" value="CONFERMA">
+            <input type="reset" value="RESET" name="reset">
+            <input type="submit" name="submit" value="INVIO">
             </div>
-           <div class="result"><p id="result"></p></div>
-           <div class="controllo"><p id="ICONTR"></p></div>
         </div> 
-        
         </form>
+        <?php
+        if(isset($_POST['submit'])){
+            if(strlen($_POST['name']) < 15 && strlen($_POST['surname']) < 15 && ctype_alpha($_POST['name']) && ctype_alpha($_POST['surname'])){ //controlli dell'input
+                
+                    $IncompleteCode = Code_Surname() . Code_Name() . Code_Date_Sex() . Code_Province();
+                    echo $IncompleteCode . calcolaCarattereControllo($IncompleteCode);
+            }else{
+                echo "I valori inseriti non sono validi";
+            }
+        }
+
+
+            
+            ?>
+
+        <script>
+            
+            function getTodayDate() {
+                const today = new Date();
+                const year = today.getFullYear();
+                const month = String(today.getMonth() + 1).padStart(2, '0'); //padStart aggiunge uno 0 in modo che le cifre siano 2 (se il mese è 9 padStart scriverà 09)
+                const day = String(today.getDate()).padStart(2, '0');
+                return `${year}-${month}-${day}`;
+            }
+
+            document.getElementById("data").setAttribute("value", getTodayDate());
+
+            const provinciaInput = document.getElementById('provinciaInput');
+            const options = Array.from(document.querySelectorAll('#provincie option')).map(option => option.value);
+
+            provinciaInput.addEventListener('blur', function() { //blur è quando esci con il cursone dall'input esegue del codice:
+                const inputValue = provinciaInput.value;
+
+                if (!options.includes(inputValue)) { //se l'input non è tra quelli consigliati azzera l'input
+                    provinciaInput.value = '';
+                    document.getElementById("pp").setAttribute("style", "color:red");
+                    
+                }
+            });
+            
+        </script>
     </body>
 </html>
