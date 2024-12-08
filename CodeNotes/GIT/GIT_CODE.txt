@@ -60,7 +60,7 @@ fetch per aggiornare l'indice del repository
 
 pull origin <nome branch> per scaricare l'aggiornamento 
 
-branch per vedere tutti i branch
+branch --all per vedere tutti i branch
 
 merge <nome branch>  per mettere nel branch corrente tutti i  file nel branch critto dopo
 
